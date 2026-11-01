@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vivek Vasudevan · Game Design Lead</title>
+  <script>(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();function toggleTheme(){var h=document.documentElement,t=h.getAttribute('data-theme')==='light'?'dark':'light';h.setAttribute('data-theme',t);try{localStorage.setItem('theme',t);}catch(e){}}</script>
+  <link rel="stylesheet" href="styles.css?v=4">
+  <style>
+    /* No dividers between sections, tighter vertical rhythm */
+    .home-hero { padding-bottom: 56px; }
+    .about-strip { border-top: none; border-bottom: none; }
+    .about-inner { padding-top: 56px; padding-bottom: 56px; }
+  </style>
+<style>
+    /* Fit the extra nav item on phones */
+    ul.nav-links a { white-space: nowrap; }
+    @media (max-width: 640px) {
+      ul.nav-links { gap: 12px; }
+      ul.nav-links a { letter-spacing: 0.08em; }
+      ul.nav-links .nav-extra { display: none; }
+      .cs-topnav ul.nav-links { gap: 0; }
+      .cs-topnav ul.nav-links a { font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="index.html" aria-label="Vivek Vasudevan home"><img src="assets/images/VivekVasudevanDesign_Logo.svg" alt="Vivek Vasudevan Design logo" width="40" height="40" /></a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Product<span class="nav-extra"> Design</span></a></li>
+      <li><a href="index.html" class="active">Work</a></li>
+      <li><a href="resume.html">Resume</a></li>
+      <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light or dark mode" title="Toggle theme"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button></li>
+    </ul>
+  </nav>
+
+  <!-- ─── HERO ─── -->
+  <section class="home-hero">
+    <div class="hero-glow-1"></div>
+    <div class="hero-glow-2"></div>
+    <div class="wide">
+      <p class="eyebrow animate-1">Portfolio · Game Design</p>
+      <h1 class="animate-2" style="margin-bottom: 28px;">
+        <span style="display:block; color: var(--text);">Vivek</span>
+        <span style="display:block; color: var(--text);">Vasudevan</span>
+        <span style="display:block; color: var(--muted);">Game Design Lead</span>
+      </h1>
+      <p class="lead animate-3">
+        10+ years designing game economies, systems, and core loops across PC and mobile.
+        Co-founder of One Eyed Octopus Studios. Formerly Ubisoft, Reliance Games.
+      </p>
+      <div class="tags animate-4" style="margin-top: 36px;">
+        <span class="tag tag-solid">Game Direction</span>
+        <span class="tag tag-solid">Systems Design</span>
+        <span class="tag tag-solid">Economy &amp; Balancing</span>
+        <span class="tag tag-solid">Game Concept Development</span>
+        <span class="tag tag-solid">Design Team Leadership</span>
+        <span class="tag tag-solid">Stakeholder Management</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ABOUT STRIP ─── -->
+  <div class="about-strip">
+    <div class="about-inner">
+      <div>
+        <p style="font-family: var(--font-display); font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px;">About</p>
+        <h2>Systems thinker. Creative lead. Studio founder.</h2>
+      </div>
+      <div>
+        <p class="lead" style="font-size: 16px; margin-bottom: 16px;">
+          I design the invisible architecture of games: the economies, loops, and systems that keep players coming back.
+          I've built a studio from nothing, directed an open-world game, and designed social mechanics that turn casual players into real communities.
+        </p>
+        <p class="lead" style="font-size: 16px;">
+          My years in product and UX design sharpened my prototyping habits and my knack for thinking in several personas at once, and that carries straight over into complex game feature work.
+          Claude AI is part of my daily workflow too, for everything from quick GDD drafts to system docs and design iteration.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── WORK ─── -->
+  <section style="padding: 48px 0;">
+    <div class="wide">
+      <div class="section-label">
+        <span class="num">01</span>
+        <h4>Select Work</h4>
+      </div>
+
+      <div class="projects-grid">
+
+        <a class="project-card" href="mumbai-gullies.html">
+          <div class="card-meta">
+            <span class="card-num">01</span>
+            <span class="card-type">Open-World Shooter · Game Director</span>
+          </div>
+          <h3>Mumbai Gullies</h3>
+          <p>India's first open-world third-person shooter for PC. GDD authored from scratch, core systems built from first principles, bilingual design. Full game director accountability.</p>
+          <div class="card-footer">
+            <div class="tags">
+              <span class="tag">GDD</span>
+              <span class="tag">Systems</span>
+              <span class="tag">Direction</span>
+            </div>
+            <span class="card-arrow">→</span>
+          </div>
+        </a>
+
+        <a class="project-card" href="kawaii-rooms.html">
+          <div class="card-meta">
+            <span class="card-num">02</span>
+            <span class="card-type">Social Builder · Game Designer</span>
+          </div>
+          <h3>Kawaii Rooms</h3>
+          <p>A Facebook game blending social, time management, building, and nurture: pet care loops, genetics-driven breeding, and room decoration where every item had a real mechanical effect.</p>
+          <div class="card-footer">
+            <div class="tags">
+              <span class="tag">Economy</span>
+              <span class="tag">Social</span>
+              <span class="tag">Loop Design</span>
+            </div>
+            <span class="card-arrow">→</span>
+          </div>
+        </a>
+
+        <a class="project-card" href="cosmic-sentry.html">
+          <div class="card-meta">
+            <span class="card-num">03</span>
+            <span class="card-type">Hyper-Casual Mobile · Game UI</span>
+          </div>
+          <h3>Cosmic Sentry</h3>
+          <p>A hyper-casual space shooter built around simplicity, fast engagement, and replayability. Full game UI, store assets, and screen design, from palette to ship.</p>
+          <div class="card-footer">
+            <div class="tags">
+              <span class="tag">Game UI</span>
+              <span class="tag">UX</span>
+              <span class="tag">Mobile</span>
+            </div>
+            <span class="card-arrow">→</span>
+          </div>
+        </a>
+
+        <a class="project-card" href="all-india-quiz.html">
+          <div class="card-meta">
+            <span class="card-num">04</span>
+            <span class="card-type">Trivia / Quiz · Producer</span>
+          </div>
+          <h3>All India Quiz</h3>
+          <p>A single-player trivia game about India: 400 questions across 20 themed sets. Produced, with design oversight, to a top 10 most-downloaded launch on Android and iOS.</p>
+          <div class="card-footer">
+            <div class="tags">
+              <span class="tag">Producer</span>
+              <span class="tag">Trivia</span>
+              <span class="tag">Mobile</span>
+            </div>
+            <span class="card-arrow">→</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SKILLS ─── -->
+  <section style="padding: 48px 0;">
+    <div class="wide">
+      <div class="section-label">
+        <span class="num">02</span>
+        <h4>Skills and Tools</h4>
+      </div>
+
+      <div class="skills-categories">
+        <div class="skill-cat">
+          <h4>Game Design</h4>
+          <ul>
+            <li>Core Loop Design</li>
+            <li>Game Economy and Balance</li>
+            <li>Player Progression Systems</li>
+            <li>GDD Authoring</li>
+            <li>Iterative Prototyping</li>
+            <li>Level Design</li>
+            <li>Social Mechanics</li>
+          </ul>
+        </div>
+        <div class="skill-cat">
+          <h4>Leadership</h4>
+          <ul>
+            <li>Game Direction</li>
+            <li>Studio Founding</li>
+            <li>Cross-team Coordination</li>
+            <li>Feature Ownership</li>
+            <li>Partner Communication</li>
+            <li>Production (Part-time)</li>
+          </ul>
+        </div>
+        <div class="skill-cat">
+          <h4>Tools</h4>
+          <ul>
+            <li>Figma and FigJam</li>
+            <li>Microsoft Dynamics 365</li>
+            <li>Google Sheets (balance modelling)</li>
+            <li>Unity and Unreal (working familiarity)</li>
+            <li>Miro</li>
+            <li>Jira</li>
+            <li>Claude AI and MCP integrations</li>
+            <li>Figma AI</li>
+          </ul>
+        </div>
+        <div class="skill-cat">
+          <h4>Background</h4>
+          <ul>
+            <li>Ubisoft</li>
+            <li>Reliance Games</li>
+            <li>GameEon</li>
+            <li>One Eyed Octopus Studios</li>
+            <li>kickAlive</li>
+            <li>Dhruva Interactive</li>
+            <li>Product &amp; UX Design</li>
+            <li style="padding-left: 24px;">Kolmeo</li>
+            <li style="padding-left: 24px;">Incolink</li>
+            <li style="padding-left: 24px;">Atisfy Pty. Ltd.</li>
+            <li style="padding-left: 24px;">Blockchain Tech. Pty. Ltd.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Vivek Vasudevan, Game Design Lead</p>
+    <p>Melbourne, AU</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en" data-cs="coinloop">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="assets/images/Favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coinloop – Vivek Vasudevan Design</title>
+  <link rel="stylesheet" href="assets/shared.css" />
+  <style>
+    /* ─── Reset ──────────────────────────────────────────── */
+    html { scroll-behavior: smooth; }
+    :root {
+      --page-max: 1440px;
+      --content-width: 1004px;
+      --cl-blue: var(--color-accent);
+      --cl-blue-50: var(--color-accent-50);
+      --cl-gray-bg: var(--color-muted-bg);
+      --dark: var(--color-text);
+    }
+    body {
+      font-family: var(--font-ui);
+      color: var(--dark);
+      background: #fff;
+      min-height: 100vh;
+    }
+
+    /* ─── NAVIGATION ─────────────────────────────────────── */
+    .nav-wrap {
+      position: sticky; top: 0; z-index: 100;
+      width: 100%;
+      background: transparent;
+      transition: background 0.3s;
+    }
+    .nav-wrap.over-hero {
+      background: var(--cl-blue);
+    }
+
+    .nav-wrap.scrolled nav {
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08), 0 8px 32px rgba(0,0,0,0.18);
+    }
+
+    /* ─── HERO ───────────────────────────────────────────── */
+    .cl-hero {
+      width: 100%;
+      height: 88.33vw; /* 1272/1440 × 100vw — matches image aspect ratio */
+      background: url('assets/images/Coinloop-Hero-Section.png') center top / 100% auto no-repeat;
+      position: relative;
+    }
+    .cl-hero-centering {
+      position: absolute;
+      inset: 0;
+      max-width: 1440px;
+      width: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .cl-hero-content {
+      position: absolute;
+      left: 15.28vw;  /* 220/1440 — tracks with image */
+      top: 23.26vw;   /* 335/1440 — tracks with image */
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      z-index: 2;
+      width: 31.25vw; /* 450/1440 */
+    }
+    .cl-hero-logo { width: 27.08vw; max-width: 390px; height: auto; display: block; }
+    .cl-hero-tagline {
+      font-family: var(--font-ui);
+      font-weight: 400;
+      font-size: clamp(18px, 2.08vw, 30px);
+      color: #fff;
+      margin-top: 6.94vw; /* 100/1440 */
+      white-space: nowrap;
+    }
+    .cl-hero-sub {
+      font-family: var(--font-ui);
+      font-weight: 400;
+      font-size: clamp(14px, 1.39vw, 20px);
+      color: #fff;
+      line-height: 1.5;
+      margin-top: 0.97vw; /* 14/1440 */
+    }
+
+    /* ─── PROJECT OVERVIEW ───────────────────────────────── */
+    .cl-overview {
+      width: 100%;
+      background: #fff;
+      padding: 120px 40px 80px;
+    }
+    .cl-overview-inner {
+      max-width: 1003px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      align-items: center;
+    }
+    .cl-overview-title {
+      font-family: var(--font-ui);
+      font-weight: 700;
+      font-size: 50px;
+      color: #000;
+      text-align: center;
+    }
+    .cl-overview-body {
+      font-family: var(--font-ui);
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 34px;
+      color: #000;
+      text-align: center;
+    }
+
+    /* ─── FEATURES STRIP ─────────────────────────────────── */
+    .cl-features {
+      width: 100%;
+      background: var(--cl-blue-50);
+      padding: 80px 40px;
+    }
+    .cl-features-inner {
+      max-width: 1003px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 40px;
+    }
+    .cl-feature-card {
+      max-width: 376px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      text-align: center;
+    }
+    .cl-feature-icon {
+      height: 64px;
+      width: auto;
+      flex-shrink: 0;
+      display: block;
+    }
+    .cl-feature-text {
+      font-family: var(--font-ui);
+      font-weight: 500;
+      font-size: 30px;
+      line-height: 38px;
+      color: #000;
+    }
+
+    /* ─── PROCESS ───────────────────────────────────────── */
+    .cl-process {
+      width: 100%;
+      background: #fff;
+    }
+    .cl-process-header {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 120px 60px;
+    }
+    .cl-process-title {
+      font-family: var(--font-ui);
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 50px;
+      color: #000;
+    }
+    .cl-process-stage {
+      width: 100%;
+      position: relative;
+    }
+    .cl-process-stage--overlap {
+      margin-top: calc(-17vw - 40px);
+      position: relative;
+      z-index: 2;
+    }
+    .cl-process-stage-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .cl-process-card {
+      position: absolute;
+      background: var(--cl-blue);
+      padding: 32px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+      z-index: 2;
+    }
+    .cl-process-num {
+      font-family: var(--font-ui);
+      font-weight: 500;
+      font-size: 30px;
+      line-height: 38px;
+      color: #fff;
+    }
+    .cl-process-items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .cl-process-items li {
+      font-family: var(--font-ui);
+      font-weight: 400;
+      font-size: 28px;
+      line-height: 40px;
+      color: #fff;
+    }
+
+    /* ─── PHONE MOCKUP (shared style) ───────────────────── */
+    .cl-phone-img {
+      width: 247px;
+      height: 439px;
+      object-fit: cover;
+      border-radius: 16px;
+      display: block;
+      flex-shrink: 0;
+    }
+    .cl-phones-row {
+      display: flex;
+      justify-content: center;
+      gap: 44px;
+      flex-wrap: wrap;
+    }
+
+    /* ─── INITIALIZATION PROCESS ─────────────────────────── */
+    .cl-init {
+      width: 100%;
+      background: var(--cl-blue);
+      padding: 80px 0;
+      overflow: hidden;
+    }
+    .cl-init-inner {
+      max-width: 1004px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+    }
+    .cl-init-phones {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 44px;
+      padding-left: 32vw;
+      margin-top: 60px;
+    }
+    .cl-section-title-white {
+      font-family: var(--font-ui);
+      font-weight: 700;
+      font-size: 40px;
+      color: #fff;
+    }
+
+    /* ─── PORTFOLIO SCREEN ───────────────────────────────── */
+    .cl-portfolio {
+      width: 100%;
+      background: var(--cl-gray-bg);
+      padding: 80px 40px;
+    }
+    .cl-portfolio-inner {
+      max-width: 1004px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+    }
+    .cl-portfolio-desc {
+      font-family: var(--font-ui);
+      font-weight: 500;
+      font-size: 25px;
+      line-height: 32px;
+      color: #fff;
+    }
+
+    /* ─── SEND AND RECEIVE ───────────────────────────────── */
+    .cl-sendreceive {
+      width: 100%;
+      background: #fff;
+      padding: 80px 40px;
+    }
+    .cl-sendreceive-inner {
+      max-width: 1004px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+    .cl-section-title-dark {
+      font-family: var(--font-ui);
+      font-weight: 700;
+      font-size: 40px;
+      color: #000;
+    }
+    .cl-phones-row-left {
+      display: flex;
+      justify-content: flex-start;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .cl-phones-row-right {
+      display: flex;
+      justify-content: flex-end;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .cl-sendreceive-desc {
+      font-family: var(--font-ui);
+      font-weight: 500;
+      font-size: 25px;
+      line-height: 32px;
+      color: #000;
+    }
+
+    /* ─── PROJECT CONTEXT BANNER ─────────────────────────── */
+    .cl-context {
+      width: 100%;
+      background: var(--cl-blue);
+      padding: 80px 40px;
+    }
+    .cl-context-inner {
+      max-width: 1012px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+    .cl-context-title {
+      font-family: var(--font-ui);
+      font-weight: 700;
+      font-size: 40px;
+      color: #fff;
+      text-align: center;
+    }
+    .cl-context-body {
+      font-family: var(--font-ui);
+      font-weight: 500;
+      font-size: 25px;
+      line-height: 40px;
+      color: #fff;
+      text-align: center;
+    }
+
+    /* ─── THANKS BANNER ──────────────────────────────────── */
+    .cl-thanks {
+      width: 100%;
+      background: var(--cl-blue);
+      padding: 80px 40px;
+      text-align: center;
+    }
+    .cl-thanks-heading {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 72px;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .cl-thanks-sub {
+      font-family: var(--font-ui);
+      font-weight: 400;
+      font-size: 20px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────────── */
+    .footer {
+      display: flex; flex-direction: column; align-items: center; gap: 64px;
+      width: 100%; max-width: 1200px; padding-top: 0; margin-top: 40px;
+    }
+
+    /* ─── SCROLL TO TOP ──────────────────────────────────── */
+
+    .scroll-top:hover { transform: translateY(-4px); }
+
+    /* ─── REVEAL ANIMATION ───────────────────────────────── */
+
+    /* ─── PAGE WRAPPER ───────────────────────────────────── */
+    .page {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 1100px) {
+      .cl-hero-content {
+        left: 40px;
+        right: 40px;
+        top: 260px;
+      }
+      .cl-overview { padding: 60px 40px; }
+      .cl-overview-title { font-size: 42px; }
+    }
+    @media (max-width: 900px) {
+      .cl-hero {
+        height: 88.33vw;
+        background-size: 100% auto;
+        background-position: center top;
+      }
+      .cl-hero-content {
+        left: 5vw;
+        top: 15vw;
+        width: 55vw;
+      }
+      .cl-features-inner {
+        flex-direction: column;
+        align-items: center;
+      }
+      .cl-feature-card {
+        max-width: 100%;
+      }
+      .cl-phone-img {
+        width: 200px;
+        height: 355px;
+      }
+      .cl-phones-row { gap: 24px; }
+      .cl-phones-row-left { gap: 24px; }
+      .cl-phones-row-right { gap: 24px; justify-content: flex-start; }
+      nav, nav { padding: 0 20px; }
+      .cl-thanks-heading { font-size: 48px; }
+
+      .footer { max-width: 100%; }
+    }
+    @media (max-width: 600px) {
+      .cl-hero-content { left: 4vw; top: 12vw; width: 65vw; }
+      .cl-hero-logo { width: 45vw; max-width: 390px; }
+      .cl-hero-tagline { font-size: 3.5vw; margin-top: 8vw; }
+      .cl-hero-sub { font-size: 2.8vw; }
+      .cl-phone-img {
+        width: 150px;
+        height: 266px;
+      }
+      .cl-phones-row { gap: 16px; }
+      .cl-phones-row-left { gap: 16px; }
+      .cl-phones-row-right { gap: 16px; }
+      .cl-hero-tagline { font-size: 22px; }
+      .cl-hero-sub { font-size: 16px; }
+      .cl-overview { padding: 48px 20px; }
+      .cl-overview-title { font-size: 36px; }
+      .cl-overview-body { font-size: 18px; line-height: 28px; }
+      .cl-features { padding: 60px 20px; }
+      .cl-feature-text { font-size: 22px; }
+      .cl-process { padding: 60px 20px; }
+      .cl-process-title { font-size: 32px; }
+      .cl-process-items li { font-size: 18px; }
+      .cl-init { padding: 60px 20px; }
+      .cl-portfolio { padding: 60px 20px; }
+      .cl-portfolio-desc { font-size: 18px; }
+      .cl-sendreceive { padding: 60px 20px; }
+      .cl-sendreceive-desc { font-size: 18px; }
+      .cl-context { padding: 60px 20px; }
+      .cl-context-title { font-size: 32px; }
+      .cl-context-body { font-size: 18px; line-height: 30px; }
+      .cl-thanks { padding: 60px 20px; }
+      .cl-thanks-heading { font-size: 36px; }
+      .cl-section-title-white { font-size: 32px; }
+      .cl-section-title-dark { font-size: 32px; }
+
+      .nav-name { font-size: 16px; }
+
+      .scroll-top { right: 8px; width: 60px; height: 60px; }
+      .scroll-top img { width: 60px; height: 60px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAVIGATION ══════════════════════════════════════ -->
+<div class="nav-wrap" id="nav-wrap">
+  <nav>
+    <a href="index.html" class="cs-back-link" aria-label="Go back to home">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M15.8333 10H4.16667M4.16667 10L10 15.8333M4.16667 10L10 4.16667" stroke="#2b2b2b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Back
+    </a>
+    <a href="index.html" class="nav-brand">
+      <img src="assets/images/VivekVasudevanDesign_Logo.svg" alt="VD logo" width="48" height="48" style="border-radius:8px;flex-shrink:0;" />
+      <span class="nav-name">Vivek Vasudevan</span>
+    </a>
+  </nav>
+</div>
+
+<!-- ═══ HERO SECTION ════════════════════════════════════ -->
+<section class="cl-hero">
+  <div class="cl-hero-centering">
+    <div class="cl-hero-content">
+      <img class="cl-hero-logo" src="assets/images/Coinloop-Logo.svg" alt="Coinloop" />
+      <p class="cl-hero-tagline">Mobile Hardware/Software Wallet</p>
+      <p class="cl-hero-sub">World's first hardware wallet app - 2018</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROJECT OVERVIEW ════════════════════════════════ -->
+<section class="cl-overview">
+  <div class="cl-overview-inner reveal">
+    <h2 class="cl-overview-title">Project Overview</h2>
+    <p class="cl-overview-body">Coinloop is a mobile application which acts as an interface for hardware wallets like Trezor and Octowallet as well as a software wallet. This is the world's first mobile app which interfaces directly with the hardware wallet. Focusing on an intuitive interface, the app's main objective is to act as the perfect crypto wallet to be used anywhere on the go!</p>
+  </div>
+</section>
+
+<!-- ═══ FEATURES STRIP ══════════════════════════════════ -->
+<section class="cl-features">
+  <div class="cl-features-inner reveal">
+    <!-- Card 1 -->
+    <div class="cl-feature-card">
+      <img class="cl-feature-icon" src="assets/images/Coinloop-Bitcoin-Crypto-Logo.svg" alt="" aria-hidden="true" />
+      <p class="cl-feature-text">Hold all crypto currencies in one place</p>
+    </div>
+    <!-- Card 2 -->
+    <div class="cl-feature-card">
+      <img class="cl-feature-icon" src="assets/images/Coinloop-Bitcoin-Software-Wallet-Logo.svg" alt="" aria-hidden="true" />
+      <p class="cl-feature-text">Seamlessly connect to your hardware wallet</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROCESS ═════════════════════════════════════════ -->
+<section class="cl-process">
+  <div class="cl-process-header reveal">
+    <h2 class="cl-process-title">Process</h2>
+  </div>
+
+  <!-- Stage 01 -->
+  <div class="cl-process-stage reveal">
+    <img class="cl-process-stage-img" src="assets/images/Coinloop-Process-01.png" alt="Process stage 01 – research" />
+  </div>
+
+  <!-- Stage 02 -->
+  <div class="cl-process-stage reveal">
+    <img class="cl-process-stage-img" src="assets/images/Coinloop-Process-02.png" alt="Process stage 02 – define" />
+  </div>
+
+  <!-- Stage 03 -->
+  <div class="cl-process-stage cl-process-stage--overlap reveal">
+    <img class="cl-process-stage-img" src="assets/images/Coinloop-Process-03.png" alt="Process stage 03 – ideate" />
+  </div>
+</section>
+
+<!-- ═══ INITIALIZATION PROCESS ══════════════════════════ -->
+<section class="cl-init">
+  <div class="cl-init-inner reveal">
+    <h2 class="cl-section-title-white">Initialization Process</h2>
+  </div>
+  <div class="cl-init-phones reveal">
+    <img class="cl-phone-img" src="assets/images/Coinloop-Screen-WalletLoading.png" alt="Wallet Loading screen" />
+    <img class="cl-phone-img" src="assets/images/Coinloop-Screen-BitcoinWallet.png" alt="Bitcoin Wallet screen" />
+    <img class="cl-phone-img" src="assets/images/Coinloop-Screen-ConfirmAddress.png" alt="Confirm Address screen" />
+    <img class="cl-phone-img" src="assets/images/Coinloop-Screen-SelectFee.png" alt="Select Fee screen" />
+  </div>
+</section>
+
+<!-- ═══ PORTFOLIO SCREEN ═════════════════════════════════ -->
+<section class="cl-portfolio">
+  <div class="cl-portfolio-inner reveal">
+    <h2 class="cl-section-title-white">Portfolio Screen</h2>
+    <div class="cl-phones-row">
+      <img class="cl-phone-img" src="assets/images/Coinloop-Screen-Assets.png" alt="Assets screen" />
+      <img class="cl-phone-img" src="assets/images/Coinloop-Screen-Send.png" alt="Send screen" />
+      <img class="cl-phone-img" src="assets/images/Coinloop-Screen-Receive.png" alt="Receive screen" />
+    </div>
+    <p class="cl-portfolio-desc">The Portfolio Screen shows the user all the crypto assets they hold. They can tap on any one of them for details about all the transactions for that particular asset. The bottom navigation bar makes it easy for the user to use all the features of the app</p>
+  </div>
+</section>
+
+<!-- ═══ SEND AND RECEIVE ═════════════════════════════════ -->
+<section class="cl-sendreceive">
+  <div class="cl-sendreceive-inner reveal">
+    <h2 class="cl-section-title-dark">Send and Receive</h2>
+    <!-- Row 1: Send, SelectFee -->
+    <div class="cl-phones-row-left">
+      <img class="cl-phone-img" src="assets/images/Coinloop-Screen-Send.png" alt="Send screen" />
+      <img class="cl-phone-img" src="assets/images/Coinloop-Screen-SelectFee.png" alt="Select Fee screen" />
+    </div>
+    <p class="cl-sendreceive-desc">Send and receive crypto assets were the two of the most important actions the user could make using the app, simple to use but with several layers of security.</p>
+    <!-- Row 2: ConfirmAddress, Receive — aligned right -->
+    <div class="cl-phones-row-right">
+      <img class="cl-phone-img" src="assets/images/Coinloop-Screen-ConfirmAddress.png" alt="Confirm Address screen" />
+      <img class="cl-phone-img" src="assets/images/Coinloop-Screen-Receive.png" alt="Receive screen" />
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROJECT CONTEXT BANNER ═══════════════════════════ -->
+<section class="cl-context">
+  <div class="cl-context-inner reveal">
+    <h2 class="cl-context-title">About the Project</h2>
+    <p class="cl-context-body">This project was for Coin Loop Pty. Ltd. in Melbourne, Australia. There are two versions of the app — a React Native app as well as an Android Native app. I worked on both but this details the work only for the Android Native app.</p>
+  </div>
+</section>
+
+<!-- ═══ THANKS BANNER ════════════════════════════════════ -->
+<div class="cl-thanks reveal" style="margin-top: 0;">
+  <h2 class="cl-thanks-heading">Thanks for viewing!</h2>
+  <p class="cl-thanks-sub">All rights reserved by Coin Loop Pty. Ltd.</p>
+</div>
+
+<!-- ═══ FOOTER ═══════════════════════════════════════════ -->
+<div class="page" style="width:100%;padding-bottom:0;">
+  <footer class="footer" id="footer">
+    <div class="footer-cta reveal">
+      <p class="footer-eyebrow">Like what you see?</p>
+      <div class="footer-headline-wrap">
+        <h2 class="footer-headline">Let's Connect!</h2>
+        <div class="footer-btns">
+          <a class="btn-filled" href="https://www.linkedin.com/in/vivek-vasudevan/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn-outline" href="assets/VivekVasudevan_Resume.pdf" download="VivekVasudevan_Resume.pdf">Resume</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom-area reveal">
+      <a class="footer-email-link" href="mailto:vivek.vasudevan.design@gmail.com" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="1.33" y="2.67" width="13.33" height="10.67" rx="1.33" stroke="#2b2b2b" stroke-width="1.33" stroke-linejoin="round"/><path d="M1.33 4.67 L8 9.33 L14.67 4.67" stroke="#2b2b2b" stroke-width="1.33" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        vivek.vasudevan.design@gmail.com
+      </a>
+      <div class="footer-bottom-nav">
+        <a href="index.html" class="footer-brand">
+          <img src="assets/images/VivekVasudevanDesign_Logo.svg" alt="VD logo" width="48" height="48" style="border-radius:8px;flex-shrink:0;" />
+          <div class="footer-brand-text">
+            <span class="footer-brand-name">Vivek Vasudevan Design</span>
+            <span class="footer-brand-copy">© 2026 All rights reserved</span>
+          </div>
+        </a>
+        <ul class="footer-nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#case-studies">Case Studies</a></li>
+          <li><a href="game-design/index.html">Game Design</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══ SCROLL TO TOP ═══════════════════════════════════ -->
+<div class="scroll-top-tooltip" id="scrollTooltip">Back to top</div>
+<button class="scroll-top" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
+  <img src="assets/images/Btn_ScrollTop.svg" alt="" />
+</button>
+
+<script>
+  const navWrap = document.getElementById('nav-wrap');
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
+  const scrollTooltip = document.getElementById('scrollTooltip');
+
+  const hero = document.querySelector('.cl-hero');
+
+  function updateNav() {
+    const heroBottom = hero.offsetTop + hero.offsetHeight;
+    const overHero = window.scrollY < heroBottom - 82;
+    navWrap.classList.toggle('over-hero', overHero);
+    navWrap.classList.toggle('scrolled', window.scrollY > 20);
+    scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+  }
+
+  window.addEventListener('scroll', updateNav);
+  updateNav(); // run on load
+
+  // Scroll-to-top tooltip
+  scrollTopBtn.addEventListener('mouseenter', () => {
+    if (scrollTopBtn.classList.contains('visible')) scrollTooltip.classList.add('visible');
+  });
+  scrollTopBtn.addEventListener('mouseleave', () => scrollTooltip.classList.remove('visible'));
+
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Scroll-to-top position (fixed right: 20px — no dynamic calc needed)
+  function updatePos() {
+    scrollTopBtn.style.right = '20px';
+    scrollTooltip.style.right = '20px';
+  }
+  updatePos();
+  window.addEventListener('resize', updatePos);
+</script>
+</body>
+</html>

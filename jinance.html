@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en" data-cs="jinance">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="assets/images/Favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jinance – Vivek Vasudevan Design</title>
+  <link rel="stylesheet" href="assets/shared.css" />
+  <style>
+    /* ─── Reset ──────────────────────────────────────────── */
+    html { scroll-behavior: smooth; }
+    :root {
+      --page-max: 1440px;
+      --content-width: 1000px;
+      --dark: #171E28;
+      --gold: var(--color-accent);
+      --body-text: #555555;
+    }
+    body {
+      font-family: var(--font-ui);
+      color: var(--color-text);
+      background: #fff;
+      min-height: 100vh;
+    }
+
+    /* ─── NAVIGATION ─────────────────────────────────────── */
+    .nav-wrap {
+      position: sticky; top: 0; z-index: 100;
+      width: 100%; background: var(--dark);
+    }
+    nav {
+      background: var(--dark);
+      height: 82px;
+      padding: 0 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: var(--page-max); margin: 0 auto;
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: 0 2px 0 rgba(0,0,0,0.2), 0 8px 24px rgba(0,0,0,0.3); }
+
+    .cs-back-link:hover { opacity: 0.7; }
+    .nav-brand {
+      display: flex; align-items: center; gap: 9px;
+      text-decoration: none;
+    }
+    .nav-name {
+      font-family: var(--font-ui);
+      font-size: 20px; font-weight: 700;
+      color: #fff; white-space: nowrap;
+    }
+
+    /* ─── HERO SECTION ───────────────────────────────────── */
+    .jn-hero {
+      width: 100%;
+      height: 810px;
+      background: #000;
+      background-image: url('assets/images/Jinance-Hero.jpg');
+      background-size: cover;
+      background-position: center top;
+      position: relative;
+      overflow: hidden;
+    }
+    .jn-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 39%, white 53%, white 100%);
+      pointer-events: none;
+    }
+    .jn-hero-pill {
+      position: absolute;
+      top: 430px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 769px;
+      padding: 31px 43px 35px 40px;
+      background: white;
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: var(--font-ui);
+      font-weight: 700;
+      font-size: 28px;
+      color: #000;
+      white-space: nowrap;
+      z-index: 2;
+    }
+    .jn-hero-meta {
+      position: absolute;
+      top: 572px;
+      left: calc(50% - 502px);
+      width: 1004px;
+      display: flex;
+      gap: 70px;
+      align-items: flex-start;
+      z-index: 2;
+    }
+    .jn-hero-meta-left {
+      width: 314px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .jn-hero-meta-right {
+      width: 620px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .jn-meta-heading {
+      font-family: var(--font-ui);
+      font-weight: 600;
+      font-size: 25px;
+      color: #000;
+    }
+    .jn-meta-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .jn-meta-list li {
+      font-family: var(--font-ui);
+      font-weight: 400;
+      font-size: 20px;
+      color: var(--body-text);
+      line-height: 30px;
+    }
+    .jn-meta-body {
+      font-family: var(--font-ui);
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 30px;
+      color: var(--body-text);
+    }
+
+    /* ─── MAIN CONTENT WRAPPER ───────────────────────────── */
+    .jn-wrap {
+      width: 100%;
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 80px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .jn-inner {
+      width: 100%;
+      max-width: var(--content-width);
+      display: flex;
+      flex-direction: column;
+      gap: 80px;
+    }
+
+    /* ─── SECTION LABEL ──────────────────────────────────── */
+    .jn-label {
+      font-family: var(--font-ui);
+      font-weight: 600;
+      font-size: 25px;
+      color: #000;
+      margin-bottom: 24px;
+    }
+
+    /* ─── DIVIDER ────────────────────────────────────────── */
+    .jn-divider {
+      border: none;
+      border-top: 1px solid #D9D9D9;
+      width: 100%;
+    }
+
+    /* ─── PROCESS ───────────────────────────────────────── */
+    .jn-process-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      width: 100%;
+      gap: 8px;
+    }
+    .jn-process-stage {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 14px;
+      flex: 1;
+    }
+    .jn-process-icon {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+    }
+    .jn-process-name {
+      font-family: var(--font-ui);
+      font-weight: 600;
+      font-size: 20px;
+      color: #000;
+    }
+    .jn-process-items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .jn-process-items li {
+      font-family: var(--font-ui);
+      font-weight: 400;
+      font-size: 16px;
+      color: var(--body-text);
+      line-height: 1.5;
+    }
+    .jn-process-connector {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 28px;
+      flex-shrink: 0;
+    }
+    .jn-process-connector img {
+      width: 20px;
+      height: auto;
+      transform: rotate(-90deg);
+      opacity: 0.4;
+    }
+
+    /* ─── TOOLS ──────────────────────────────────────────── */
+    .jn-tools-row {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .jn-tool-icon {
+      height: 100px;
+      width: auto;
+      display: block;
+    }
+
+    /* ─── PROBLEM ────────────────────────────────────────── */
+    .jn-problem-headline {
+      font-family: var(--font-ui);
+      font-weight: 700;
+      font-size: 30px;
+      line-height: 40px;
+      color: #000;
+      margin-bottom: 20px;
+    }
+    .jn-body {
+      font-family: var(--font-ui);
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 1.7;
+      color: var(--body-text);
+    }
+
+    /* ─── UNDERSTAND CARDS ───────────────────────────────── */
+    .jn-understand-cards {
+      display: flex;
+      gap: 24px;
+    }
+    .jn-understand-card {
+      background: var(--dark);
+      border-radius: 12px;
+      padding: 24px;
+      flex: 1;
+      min-height: 240px;
+      font-family: var(--font-ui);
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 32px;
+      color: #fff;
+    }
+    .jn-understand-card strong {
+      font-weight: 700;
+    }
+    .jn-sub-heading {
+      font-family: var(--font-ui);
+      font-weight: 600;
+      font-size: 25px;
+      color: #000;
+      margin-bottom: 20px;
+      margin-top: 16px;
+    }
+    .jn-bullet-list {
+      list-style: disc;
+      padding-left: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .jn-bullet-list li {
+      font-family: var(--font-ui);
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 1.7;
+      color: var(--body-text);
+    }
+
+    /* ─── PERSONAS ───────────────────────────────────────── */
+    .jn-persona-section {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    .jn-persona-heading {
+      font-family: var(--font-ui);
+      font-weight: 600;
+      font-size: 25px;
+      color: #000;
+    }
+    .jn-persona-intro-row {
+      display: flex;
+      gap: 32px;
+      align-items: flex-start;
+    }
+    .jn-persona-photo {
+      width: 192px;
+      height: 192px;
+      border-radius: 9999px;
+      object-fit: cover;
+      border: 2px solid var(--gold);
+      flex-shrink: 0;
+    }
+    .jn-persona-details {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .jn-persona-name {
+      font-family: var(--font-ui);
+      font-weight: 700;
+      font-size: 20px;
+      color: var(--body-text);
+    }
+    .jn-persona-detail {
+      font-family: var(--font-ui);
+      font-weight: 400;
+      font-size: 20px;
+      color: var(--body-text);
+      line-height: 1.6;
+    }
+
+    /* persona 2×2 grid table */
+    .jn-persona-grid {
+      width: 100%;
+      border: 1px solid var(--dark);
+      border-radius: 8px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .jn-persona-cell {
+      border-right: 1px solid var(--dark);
+      border-bottom: 1px solid var(--dark);
+    }
+    .jn-persona-cell:nth-child(2n) { border-right: none; }
+    .jn-persona-cell:nth-last-child(-n+2) { border-bottom: none; }
+    .jn-persona-cell-header {
+      background: var(--dark);
+      padding: 24px;
+      font-family: var(--font-ui);
+      font-weight: 500;
+      font-size: 20px;
+      color: #fff;
+    }
+    .jn-persona-cell-body {
+      padding: 12px 24px;
+      font-family: var(--font-ui);
+      font-weight: 400;
+      font-size: 20px;
+      color: var(--body-text);
+      line-height: 1.65;
+    }
+
+    /* ─── PERSONA MAP IMAGE ──────────────────────────────── */
+    .jn-persona-map {
+      width: 100%;
+      display: block;
+      border-radius: 8px;
+      margin-top: 8px;
+    }
+
+    /* ─── IDEATE ─────────────────────────────────────────── */
+    .jn-paper-images {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      margin: 24px 0;
+    }
+    .jn-paper-img {
+      max-width: 468px;
+      width: 100%;
+      display: block;
+      border-radius: 8px;
+    }
+    .jn-ideate-row {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+    }
+    .jn-ideate-left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .jn-ideate-right {
+      flex-shrink: 0;
+    }
+    .jn-wireframe-img {
+      width: 280px;
+      display: block;
+      border-radius: 8px;
+    }
+
+    /* ─── PROTOTYPE ──────────────────────────────────────── */
+    .jn-prototype-row {
+      display: flex;
+      gap: 6px;
+      align-items: flex-start;
+    }
+    .jn-proto-desktop {
+      flex: 3;
+      display: block;
+      width: 100%;
+      border: 2px solid #000;
+      border-radius: 4px;
+    }
+    .jn-proto-mobile {
+      flex: 1;
+      display: block;
+      width: 100%;
+      border: 2px solid #000;
+      border-radius: 4px;
+    }
+
+    /* ─── RESULTS / OUTCOME ─────────────────────────────── */
+    .jn-results-text {
+      font-family: var(--font-ui);
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 1.7;
+      color: var(--body-text);
+    }
+    .jn-results-highlight {
+      font-family: var(--font-ui);
+      font-weight: 700;
+      font-size: 32px;
+      color: var(--body-text);
+    }
+    .jn-outcome-card {
+      background: var(--color-accent);
+      border-radius: 20px;
+      padding: 40px;
+      width: 100%;
+    }
+    .jn-section-label {
+      font-family: var(--font-ui);
+      font-weight: 600;
+      font-size: 25px;
+      color: #000;
+      margin-bottom: 24px;
+    }
+    .jn-outcome-text {
+      font-family: var(--font-ui);
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 40px;
+      color: #000;
+      opacity: 0.7;
+    }
+    .jn-outcome-highlight {
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 40px;
+      color: #000;
+    }
+
+    /* ─── THANKS BANNER ──────────────────────────────────── */
+    .jn-thanks {
+      width: 100%;
+      background: var(--dark);
+      padding: 80px 40px;
+      text-align: center;
+    }
+    .jn-thanks-heading {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 72px;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .jn-thanks-sub {
+      font-family: var(--font-ui);
+      font-weight: 500;
+      font-size: 20px;
+      color: rgba(255,255,255,0.8);
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────────── */
+    .footer {
+      display: flex; flex-direction: column; align-items: center; gap: 64px;
+      width: 100%; max-width: 1200px; padding-top: 0; margin-top: 40px;
+    }
+
+    /* ─── SCROLL TO TOP ──────────────────────────────────── */
+
+    .scroll-top:hover { transform: translateY(-4px); }
+
+    /* ─── REVEAL ANIMATION ───────────────────────────────── */
+
+    /* ─── PAGE WRAPPER ───────────────────────────────────── */
+    .page {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 1100px) {
+      .jn-hero { height: auto; min-height: 810px; }
+      .jn-hero-pill { position: relative; top: auto; left: auto; transform: none; width: calc(100% - 80px); max-width: 769px; margin: 320px auto 0; white-space: normal; text-align: center; }
+      .jn-hero-meta { position: relative; top: auto; left: auto; transform: none; width: calc(100% - 80px); max-width: 1004px; margin: 40px auto 60px; }
+      .jn-hero-meta-left, .jn-hero-meta-right { width: auto; }
+    }
+    @media (max-width: 900px) {
+      .jn-hero-meta { flex-direction: column; gap: 32px; }
+      .jn-hero-meta-left, .jn-hero-meta-right { width: 100%; }
+      .jn-understand-cards { flex-direction: column; }
+      .jn-persona-intro-row { flex-direction: column; align-items: center; }
+      .jn-ideate-row { flex-direction: column; }
+      .jn-wireframe-img { width: 100%; }
+      .jn-prototype-row { flex-direction: column; }
+      .jn-thanks-heading { font-size: 48px; }
+      nav { padding: 0 20px; }
+
+      .footer { max-width: 100%; }
+    }
+    @media (max-width: 600px) {
+      .jn-hero-pill { width: calc(100% - 40px); margin-top: 280px; font-size: 20px; padding: 24px 28px; }
+      .jn-hero-meta { width: calc(100% - 40px); margin-left: auto; margin-right: auto; }
+      .jn-wrap { padding: 60px 20px; }
+      .jn-thanks-heading { font-size: 36px; }
+
+      .scroll-top { right: 8px; width: 60px; height: 60px; }
+      .scroll-top img { width: 60px; height: 60px; }
+      .jn-persona-grid { grid-template-columns: 1fr; }
+      .jn-persona-cell:nth-child(2n) { border-right: 1px solid var(--dark); }
+      .jn-persona-cell:nth-last-child(-n+2) { border-bottom: 1px solid var(--dark); }
+      .jn-persona-cell:last-child { border-bottom: none; }
+      nav { padding: 0 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAVIGATION ══════════════════════════════════════ -->
+<div class="nav-wrap">
+  <nav id="main-nav">
+    <a href="index.html" class="cs-back-link" aria-label="Go back to home">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15.8333 10H4.16667M4.16667 10L10 15.8333M4.16667 10L10 4.16667" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Back
+    </a>
+    <a href="index.html" class="nav-brand">
+      <img src="assets/images/VivekVasudevanDesign_Logo.svg" alt="VD logo" width="48" height="48" style="border-radius:8px;flex-shrink:0;" />
+      <span class="nav-name">Vivek Vasudevan</span>
+    </a>
+  </nav>
+</div>
+
+<!-- ═══ HERO SECTION ════════════════════════════════════ -->
+<section class="jn-hero">
+  <div class="jn-hero-overlay"></div>
+  <div class="jn-hero-pill">
+    Jinance - An Australian Cryptocurrency exchange
+  </div>
+  <div class="jn-hero-meta reveal">
+    <div class="jn-hero-meta-left">
+      <h2 class="jn-meta-heading">My Role</h2>
+      <ul class="jn-meta-list">
+        <li>UX/UI Designer</li>
+        <li>Delegate work to other designer</li>
+        <li>Lockdown and finalize designs</li>
+      </ul>
+    </div>
+    <div class="jn-hero-meta-right">
+      <h2 class="jn-meta-heading">My Deliverable</h2>
+      <p class="jn-meta-body">Responsible for the competitive research of different exchange platforms, conduct user interviews, create user personas, information architecture + wireframes for the website, clickable prototype and final presentation</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MAIN CONTENT ════════════════════════════════════ -->
+<div class="jn-wrap">
+  <div class="jn-inner">
+
+    <!-- TOOLS -->
+    <section class="reveal">
+      <h2 class="jn-label">Tools</h2>
+      <div class="jn-tools-row">
+        <img class="jn-tool-icon" src="assets/images/Jinance-Tool-Sketch.png" alt="Sketch" />
+        <img class="jn-tool-icon" src="assets/images/Jinance-Tool-XD.png" alt="Adobe XD" />
+        <img class="jn-tool-icon" src="assets/images/Jinance-Tool-Photoshop.png" alt="Photoshop" />
+        <img class="jn-tool-icon" src="assets/images/Jinance-Tool-Illustrator.png" alt="Illustrator" />
+        <img class="jn-tool-icon" src="assets/images/Jinance-Tool-Atlassian.svg" alt="Atlassian" />
+        <img class="jn-tool-icon" src="assets/images/Jinance-Tool-Lanhu.svg" alt="Lanhu" />
+      </div>
+    </section>
+
+    <hr class="jn-divider" />
+
+    <!-- PROCESS -->
+    <section class="reveal">
+      <h2 class="jn-label">Process</h2>
+      <div class="jn-process-row">
+
+        <div class="jn-process-stage">
+          <img class="jn-process-icon" src="assets/images/Process-Understand.svg" alt="Understand" />
+          <div class="jn-process-name">Understand</div>
+          <ul class="jn-process-items">
+            <li>Research</li>
+            <li>1 on 1 Interviews</li>
+            <li>Surveys</li>
+          </ul>
+        </div>
+
+        <div class="jn-process-connector">
+          <img src="assets/images/Process-Arrow.svg" alt="" />
+        </div>
+
+        <div class="jn-process-stage">
+          <img class="jn-process-icon" src="assets/images/Process-Define.svg" alt="Define" />
+          <div class="jn-process-name">Define</div>
+          <ul class="jn-process-items">
+            <li>User Personas</li>
+            <li>Journey Map</li>
+          </ul>
+        </div>
+
+        <div class="jn-process-connector">
+          <img src="assets/images/Process-Arrow.svg" alt="" />
+        </div>
+
+        <div class="jn-process-stage">
+          <img class="jn-process-icon" src="assets/images/Process-Ideate.svg" alt="Ideate" />
+          <div class="jn-process-name">Ideate</div>
+          <ul class="jn-process-items">
+            <li>Wireframes</li>
+            <li>Lo-fi Sketches</li>
+          </ul>
+        </div>
+
+        <div class="jn-process-connector">
+          <img src="assets/images/Process-Arrow.svg" alt="" />
+        </div>
+
+        <div class="jn-process-stage">
+          <img class="jn-process-icon" src="assets/images/Process-Prototype.svg" alt="Prototype" />
+          <div class="jn-process-name">Prototype</div>
+          <ul class="jn-process-items">
+            <li>Hi-fi mock-ups</li>
+            <li>Clickable prototype</li>
+          </ul>
+        </div>
+
+        <div class="jn-process-connector">
+          <img src="assets/images/Process-Arrow.svg" alt="" />
+        </div>
+
+        <div class="jn-process-stage">
+          <img class="jn-process-icon" src="assets/images/Process-Validate.svg" alt="Validate" />
+          <div class="jn-process-name">Validate</div>
+          <ul class="jn-process-items">
+            <li>Presentation</li>
+            <li>Analysis</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <hr class="jn-divider" />
+
+    <!-- PROBLEM -->
+    <section class="reveal">
+      <h2 class="jn-label">Problem</h2>
+      <p class="jn-problem-headline">The exchange platform did not clearly communicate what it was for neither did the home page drive the users to trade</p>
+      <p class="jn-body">The landing page needed a huge overhaul and needed to convert more people visiting the page. In my role as a UX Designer, I worked with the CEO, BAs &amp; Marketing team to further discuss these pain points and possible solutions. As the project continued I met with them regularly. I made sure to inform them of my progress and share any research I conducted.</p>
+    </section>
+
+    <hr class="jn-divider" />
+
+    <!-- UNDERSTAND -->
+    <section class="reveal">
+      <h2 class="jn-label">Understand</h2>
+      <div class="jn-understand-cards">
+        <div class="jn-understand-card">
+          Research and analyze different <strong>exchange platforms (competitors)</strong> noting everything they do to organize their site.
+        </div>
+        <div class="jn-understand-card">
+          Conduct 1 on 1 interviews with people who attend the blockchain meetups and friends working with financial institutions.
+        </div>
+        <div class="jn-understand-card">
+          Gain knowledge of best practices <strong>for website design. I learned about</strong> heuristics evaluations, usability tests, and scannability.
+        </div>
+      </div>
+
+      <div style="margin-top: 48px;">
+        <h3 class="jn-sub-heading">Key takeaways from the research and interviews</h3>
+        <ul class="jn-bullet-list">
+          <li>Most of the users could not understand what Jinance was by looking at the landing page.</li>
+          <li>There was no information about the people behind the exchange platform.</li>
+          <li>There was no call to action for the main purpose of the site.</li>
+          <li>The important information was on the secondary and tertiary levels of the website &amp; the content was not organized.</li>
+          <li>They spoke about the limited time they had to understand an exchange website and the need to access information quickly and easily.</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="jn-divider" />
+
+    <!-- DEFINE -->
+    <section class="reveal">
+      <h2 class="jn-label">Define</h2>
+
+      <!-- Persona 1: Casual Trader -->
+      <div class="jn-persona-section" style="margin-bottom: 64px;">
+        <h3 class="jn-persona-heading">Casual Trader</h3>
+        <div class="jn-persona-intro-row">
+          <img class="jn-persona-photo" src="assets/images/Jinance-Persona-Justin.jpg" alt="Casual Trader persona photo" style="width:192px;height:192px;border-radius:50%;border:2px solid var(--color-accent);" />
+          <div class="jn-persona-details">
+            <p class="jn-persona-name">"Just for fun" Justin</p>
+            <p class="jn-persona-detail">Age: 25–30</p>
+            <p class="jn-persona-detail">Location: Penrith NSW</p>
+            <p class="jn-persona-detail">Family Status: Single</p>
+            <p class="jn-persona-detail">Career/Industry: Sales Rep – tech</p>
+            <p class="jn-persona-detail">Education: Undergraduate – IT</p>
+          </div>
+        </div>
+        <div class="jn-persona-grid">
+          <div class="jn-persona-cell">
+            <div class="jn-persona-cell-header">Goals</div>
+            <div class="jn-persona-cell-body">He's a tech-savvy sales rep who's starting to save money and wants to get into cryptocurrency trading to build a healthy financial safety net and buy a property in the near future.</div>
+          </div>
+          <div class="jn-persona-cell">
+            <div class="jn-persona-cell-header">Motivators</div>
+            <div class="jn-persona-cell-body">He wants to trade digital currencies because of the growing crypto market and high return potentials. He sees blockchain and the crypto market as the investing tools of the future so he wants to get in early.</div>
+          </div>
+          <div class="jn-persona-cell">
+            <div class="jn-persona-cell-header">Challenges</div>
+            <div class="jn-persona-cell-body">Inexperienced investor, has a fear of the unpredictable market but understands that some risks need to be taken. Does not trust the unregulated crypto market. Concerned about exchange provider reputation. Fears losing his money to scammy platforms. Wants someone to hold his hand while he gets started, so customer service is important to him. There is a lot of information online, he doesn't want to be bombarded with information.</div>
+          </div>
+          <div class="jn-persona-cell">
+            <div class="jn-persona-cell-header">Sources of information</div>
+            <div class="jn-persona-cell-body">Social: Facebook, LinkedIn, Google, Telegram. Online channels: CoinTelegraf, CoinMarketCap, and BitcoinTalk.</div>
+          </div>
+        </div>
+        <img class="jn-persona-map reveal" src="assets/images/Jinance-JourneyMap.jpg" alt="Jinance journey map" style="width:100%;" />
+      </div>
+
+      <!-- Persona 2: Frequent Trader -->
+      <div class="jn-persona-section" style="margin-bottom: 64px;">
+        <h3 class="jn-persona-heading">Frequent Trader</h3>
+        <div class="jn-persona-intro-row">
+          <img class="jn-persona-photo" src="assets/images/Jinance-Persona-Freddie.jpg" alt="Frequent Trader persona photo" style="width:192px;height:192px;border-radius:50%;border:2px solid var(--color-accent);" />
+          <div class="jn-persona-details">
+            <p class="jn-persona-name">"Frequent Freddie"</p>
+            <p class="jn-persona-detail">Age: 30–40</p>
+            <p class="jn-persona-detail">Location: Newcastle NSW</p>
+            <p class="jn-persona-detail">Family Status: Married, three kids</p>
+            <p class="jn-persona-detail">Career/Industry: FMCG Marketing Director</p>
+            <p class="jn-persona-detail">Education: Bachelor of Business</p>
+          </div>
+        </div>
+        <div class="jn-persona-grid">
+          <div class="jn-persona-cell">
+            <div class="jn-persona-cell-header">Goals</div>
+            <div class="jn-persona-cell-body">Freddie knows that the sector is growing and wants to be at the forefront of it. He likes the idea of trading digital currency because he knows it can be highly profitable, he wants to be financially independent before retiring. He can't risk losing his crypto investments so security is very important.</div>
+          </div>
+          <div class="jn-persona-cell">
+            <div class="jn-persona-cell-header">Motivators</div>
+            <div class="jn-persona-cell-body">He's been involved for several years and has already managed to earn a fair chunk. He's a true blockchain supporter who believes in the cryptocurrency idea itself and promotes it in every possible way.</div>
+          </div>
+          <div class="jn-persona-cell">
+            <div class="jn-persona-cell-header">Challenges</div>
+            <div class="jn-persona-cell-body">Busy lifestyle and family commitments make him unable to spend too much time on the platform. He needs an exchange that is not only the most affordable, but also easy to use, fast and trustworthy. He knows about other platforms rewards programs, so he wants the best possible deals.</div>
+          </div>
+          <div class="jn-persona-cell">
+            <div class="jn-persona-cell-header">Sources of information</div>
+            <div class="jn-persona-cell-body">Social media groups, Online crypto channels.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Persona 3: Advanced Trader -->
+      <div class="jn-persona-section">
+        <h3 class="jn-persona-heading">Advanced Trader</h3>
+        <div class="jn-persona-intro-row">
+          <img class="jn-persona-photo" src="assets/images/Jinance-Persona-Sam.jpg" alt="Advanced Trader persona photo" style="width:192px;height:192px;border-radius:50%;border:2px solid var(--color-accent);" />
+          <div class="jn-persona-details">
+            <p class="jn-persona-name">"Sophisticated Sam"</p>
+            <p class="jn-persona-detail">Age: 30–45</p>
+            <p class="jn-persona-detail">Location: Melbourne VIC</p>
+            <p class="jn-persona-detail">Family Status: Married, small family</p>
+            <p class="jn-persona-detail">Career/Industry: Management Level</p>
+            <p class="jn-persona-detail">Education: Bachelor of IT / MBA</p>
+          </div>
+        </div>
+        <div class="jn-persona-grid">
+          <div class="jn-persona-cell">
+            <div class="jn-persona-cell-header">Goals</div>
+            <div class="jn-persona-cell-body">His income now rests on his trading success. Sam's objective is to achieve a comfortable lifestyle, financially free to spend more time doing the things important to him. He wants to be in control of his own time.</div>
+          </div>
+          <div class="jn-persona-cell">
+            <div class="jn-persona-cell-header">Motivators</div>
+            <div class="jn-persona-cell-body">He made a fair bit of money trading the stock market and cryptocurrency. He seeks a connection to the world of crypto trading and would relish any social opportunity and wants to remain in the know. Industry updates in the form of reports are important to him.</div>
+          </div>
+          <div class="jn-persona-cell">
+            <div class="jn-persona-cell-header">Challenges</div>
+            <div class="jn-persona-cell-body">Busy lifestyle and with a family to support, risk has to be monitored. Due to his previous experience, his knowledge is extensive and he's quite set in his own ways. Changing platform would be hard for him, he's loyal to his current one.</div>
+          </div>
+          <div class="jn-persona-cell">
+            <div class="jn-persona-cell-header">Sources of information</div>
+            <div class="jn-persona-cell-body">Social media groups, Online crypto channels, industry reports.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="jn-divider" />
+
+    <!-- IDEATE -->
+    <section class="reveal">
+      <h2 class="jn-label">Ideate</h2>
+      <p class="jn-body">I had a brainstorming session with my colleague and came with rough designs for the new look of the website. I made a paper prototype of the home page and tested it out with a few of my colleagues to see if it was having the desired result.</p>
+
+      <div class="jn-paper-images" style="margin-bottom:80px;">
+        <img class="jn-paper-img" src="assets/images/Jinance-Sketch-Group.png" alt="Jinance sketch group" style="max-width:468px;width:100%;display:block;margin:0 auto;" />
+      </div>
+
+      <div class="jn-ideate-row">
+        <div class="jn-ideate-left">
+          <p class="jn-body"><strong>After this I created wireframes for the new landing page.</strong> The wireframes covered the key sections including the hero, navigation, features, trading information, and the call to action. I used both Sketch and Adobe XD throughout the process to explore layout options and iterate quickly based on feedback from the team and stakeholders. <strong>There have been many revisions to the design and the website has come a long way from the original design.</strong></p>
+        </div>
+        <div class="jn-ideate-right">
+          <img class="jn-wireframe-img" src="assets/images/Jinance-Wireframes.jpg" alt="Jinance wireframes" style="width:549px;" />
+        </div>
+      </div>
+    </section>
+
+    <hr class="jn-divider" />
+
+    <!-- PROTOTYPE -->
+    <section class="reveal">
+      <h2 class="jn-label">Prototype</h2>
+      <p class="jn-body" style="margin-bottom: 32px;">Below are some screens of the final prototype for the desktop &amp; mobile version of the Landing Page.</p>
+      <div class="jn-prototype-row">
+        <img class="jn-proto-desktop" src="assets/images/Jinance-Prototype-Desktop.jpg" alt="Jinance desktop prototype" />
+        <img class="jn-proto-mobile" src="assets/images/Jinance-Prototype-Mobile.jpg" alt="Jinance mobile prototype" />
+      </div>
+    </section>
+
+    <hr class="jn-divider" />
+
+    <!-- OUTCOME -->
+    <section class="reveal">
+      <div class="jn-outcome-card">
+        <h3 class="jn-section-label">Outcome</h3>
+        <p class="jn-outcome-text">
+          I was able to validate the design by checking the analytics and finding that there was a
+          <strong class="jn-outcome-highlight">20% increase in the number of conversions</strong>
+          after the new homepage went live.
+        </p>
+      </div>
+    </section>
+
+  </div><!-- /jn-inner -->
+</div><!-- /jn-wrap -->
+
+<!-- ═══ THANKS BANNER ═══════════════════════════════════ -->
+<div class="jn-thanks reveal">
+  <h2 class="jn-thanks-heading">Thanks for viewing!</h2>
+  <p class="jn-thanks-sub">All rights reserved by Blockchain Tech Pty. Ltd.</p>
+</div>
+
+<!-- ═══ FOOTER ═══════════════════════════════════════════ -->
+<div class="page" style="width:100%;padding-bottom:0;">
+  <footer class="footer" id="footer">
+    <div class="footer-cta reveal">
+      <p class="footer-eyebrow">Like what you see?</p>
+      <div class="footer-headline-wrap">
+        <h2 class="footer-headline">Let's Connect!</h2>
+        <div class="footer-btns">
+          <a class="btn-filled" href="https://www.linkedin.com/in/vivek-vasudevan/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn-outline" href="assets/VivekVasudevan_Resume.pdf" download="VivekVasudevan_Resume.pdf">Resume</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom-area reveal">
+      <a class="footer-email-link" href="mailto:vivek.vasudevan.design@gmail.com" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="1.33" y="2.67" width="13.33" height="10.67" rx="1.33" stroke="#2b2b2b" stroke-width="1.33" stroke-linejoin="round"/><path d="M1.33 4.67 L8 9.33 L14.67 4.67" stroke="#2b2b2b" stroke-width="1.33" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        vivek.vasudevan.design@gmail.com
+      </a>
+      <div class="footer-bottom-nav">
+        <a href="index.html" class="footer-brand">
+          <img src="assets/images/VivekVasudevanDesign_Logo.svg" alt="VD logo" width="48" height="48" style="border-radius:8px;flex-shrink:0;" />
+          <div class="footer-brand-text">
+            <span class="footer-brand-name">Vivek Vasudevan Design</span>
+            <span class="footer-brand-copy">© 2026 All rights reserved</span>
+          </div>
+        </a>
+        <ul class="footer-nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#case-studies">Case Studies</a></li>
+          <li><a href="game-design/index.html">Game Design</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══ SCROLL TO TOP ═══════════════════════════════════ -->
+<div class="scroll-top-tooltip" id="scrollTooltip">Back to top</div>
+<button class="scroll-top" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
+  <img src="assets/images/Btn_ScrollTop.svg" alt="" />
+</button>
+
+<script>
+  const nav = document.getElementById('main-nav');
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
+  const scrollTooltip = document.getElementById('scrollTooltip');
+
+  scrollTopBtn.addEventListener('mouseenter', () => {
+    if (scrollTopBtn.classList.contains('visible')) scrollTooltip.classList.add('visible');
+  });
+  scrollTopBtn.addEventListener('mouseleave', () => scrollTooltip.classList.remove('visible'));
+
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+    scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  function updatePos() {
+    const vw = window.innerWidth;
+    const right = vw > 1440 ? ((vw - 1440) / 2 + 20) + 'px' : '20px';
+    scrollTopBtn.style.right = right;
+    scrollTooltip.style.right = right;
+  }
+  updatePos();
+  window.addEventListener('resize', updatePos);
+</script>
+</body>
+</html>

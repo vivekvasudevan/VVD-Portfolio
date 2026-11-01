@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All India Quiz · Vivek Vasudevan</title>
+  <script>(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();function toggleTheme(){var h=document.documentElement,t=h.getAttribute('data-theme')==='light'?'dark':'light';h.setAttribute('data-theme',t);try{localStorage.setItem('theme',t);}catch(e){}}</script>
+  <link rel="stylesheet" href="styles.css?v=4">
+  <style>
+    /* Game screens shown in phone mockups */
+    .aiq-phones {
+      display: flex; justify-content: center; align-items: flex-start;
+      gap: 36px; flex-wrap: wrap;
+    }
+    .aiq-phone {
+      width: 232px;
+      padding: 10px;
+      background: #0b1018;
+      border: 1px solid #243447;
+      border-radius: 30px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.45), inset 0 0 0 1px rgba(255,255,255,0.03);
+    }
+    .aiq-phone img {
+      display: block; width: 100%; height: auto;
+      border: none; border-radius: 22px;
+    }
+    @media (max-width: 520px) {
+      .aiq-phone { width: 70%; max-width: 280px; }
+    }
+
+    /* divider-free, tighter layout */
+    .cs-section { border-top: none; padding: 40px 0; }
+    .cs-hero { padding-bottom: 28px; }
+    .media-wide { margin-top: 0; }
+    .project-nav { border-top: none; margin-top: 8px; padding: 24px 0; }
+  </style>
+<style>
+    /* Fit the extra nav item on phones */
+    ul.nav-links a { white-space: nowrap; }
+    @media (max-width: 640px) {
+      ul.nav-links { gap: 12px; }
+      ul.nav-links a { letter-spacing: 0.08em; }
+      ul.nav-links .nav-extra { display: none; }
+      .cs-topnav ul.nav-links { gap: 0; }
+      .cs-topnav ul.nav-links a { font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="index.html" aria-label="Vivek Vasudevan home"><img src="assets/images/VivekVasudevanDesign_Logo.svg" alt="Vivek Vasudevan Design logo" width="40" height="40" /></a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Product<span class="nav-extra"> Design</span></a></li>
+      <li><a href="index.html">Work</a></li>
+      <li><a href="resume.html">Resume</a></li>
+      <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light or dark mode" title="Toggle theme"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button></li>
+    </ul>
+  </nav>
+
+  <!-- ─── HERO ─── -->
+  <div class="container">
+    <section class="cs-hero">
+      <p class="eyebrow animate-1">Case Study 04</p>
+      <h1 class="animate-2" style="margin-bottom: 24px;">All India<br>Quiz</h1>
+      <p class="lead animate-3">A single-player trivia game built entirely around India: its history, geography, culture, cinema, and sport. Four hundred questions across twenty themed sets, and a top ten most-downloaded finish at launch.</p>
+      <div class="cs-meta animate-4">
+        <span class="tag">Producer</span>
+        <span class="tag">Design Oversight</span>
+        <span class="tag">One Eyed Octopus Studios</span>
+        <span class="tag">Android and iOS</span>
+        <span class="tag">Top 10 at launch</span>
+      </div>
+    </section>
+  </div>
+
+  <!-- KEY ART -->
+  <div class="wide">
+    <div class="media media-wide">
+      <img src="images/all-india-quiz/01-keyart.jpg" alt="All India Quiz key art" />
+    </div>
+  </div>
+
+  <!-- INFO GRID -->
+  <div class="container" style="padding-top: 56px; padding-bottom: 0;">
+    <div class="info-grid" style="margin-top: 0;">
+      <div class="info-block">
+        <div class="label">Studio</div>
+        <div class="value">One Eyed Octopus Studios</div>
+      </div>
+      <div class="info-block">
+        <div class="label">My Role</div>
+        <div class="value">Producer (Design Oversight)</div>
+      </div>
+      <div class="info-block">
+        <div class="label">Platform</div>
+        <div class="value">Android and iOS</div>
+      </div>
+      <div class="info-block">
+        <div class="label">Genre</div>
+        <div class="value">Single-Player Trivia</div>
+      </div>
+      <div class="info-block">
+        <div class="label">Content</div>
+        <div class="value">400 questions, 20 sets of 20</div>
+      </div>
+      <div class="info-block">
+        <div class="label">Status</div>
+        <div class="value">Launched, Top 10 most downloaded</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── 01: The Game ─── -->
+  <div class="container">
+    <section class="cs-section">
+      <div class="section-label">
+        <span class="num">01</span>
+        <h4>The Game</h4>
+      </div>
+      <h2>A trivia game with India at its core</h2>
+      <p style="margin-top: 20px;">All India Quiz was a single-player trivia game about India, spanning its history, geography, culture, cinema, and sport. The content was organised into twenty themed sets of twenty questions each, four hundred in total, so players always knew exactly what they were taking on and how far they had to go.</p>
+      <p>It was a One Eyed Octopus title for Android and iOS, and it struck a chord. At launch it landed in the top ten most downloaded games, which for a small studio making a homegrown quiz was a genuinely proud moment.</p>
+
+      <div class="quote-block">
+        <p>"A good trivia game is simple to pick up and surprisingly hard to put down. That balance was the whole job."</p>
+      </div>
+
+      <!-- SCREEN GALLERY -->
+      <div class="media">
+        <div class="aiq-phones">
+          <div class="aiq-phone"><img src="images/all-india-quiz/screen-1.png" alt="All India Quiz set-select screen" /></div>
+          <div class="aiq-phone"><img src="images/all-india-quiz/screen-2.png" alt="All India Quiz gameplay screen" /></div>
+          <div class="aiq-phone"><img src="images/all-india-quiz/screen-3.png" alt="All India Quiz gameplay screen" /></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ─── 02: My Role ─── -->
+  <div class="container">
+    <section class="cs-section">
+      <div class="section-label">
+        <span class="num">02</span>
+        <h4>My Role</h4>
+      </div>
+      <h2>Producer, and the person watching over the design</h2>
+      <p style="margin-top: 20px;">On All India Quiz I was the producer. The detailed design was handled by a junior designer on the team, and my job was to oversee that design, keep the scope realistic, protect the quality bar, and steer the whole thing to a clean launch on both Android and iOS.</p>
+      <p>A lot of that work was mentoring. I helped shape the question structure, pushed on fairness and difficulty, reviewed the build as it came together, and made the calls that kept us on track. It is some of the work I am most proud of, because the result was someone else growing as a designer while we shipped a game that players genuinely took to.</p>
+
+      <div class="info-grid">
+        <div class="info-block">
+          <div class="label">I owned</div>
+          <div class="value">Production, scope, schedule, and design oversight</div>
+        </div>
+        <div class="info-block">
+          <div class="label">Designed by</div>
+          <div class="value">A junior designer, mentored throughout</div>
+        </div>
+        <div class="info-block">
+          <div class="label">Outcome</div>
+          <div class="value">Shipped on Android and iOS, top 10 at launch</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ─── 03: The Design ─── -->
+  <div class="container">
+    <section class="cs-section">
+      <div class="section-label">
+        <span class="num">03</span>
+        <h4>The Design We Shipped</h4>
+      </div>
+      <h2>Simple on the surface, carefully tuned underneath</h2>
+      <p style="margin-top: 20px;">The hard part of any trivia game isn't writing questions. It's everything around them: how the content is organised, how difficulty feels across a set, and how scoring stays fair. These were the areas I kept the closest eye on as the design came together.</p>
+
+      <div class="system-block">
+        <h3>Question sets and content structure</h3>
+        <p>Four hundred questions, grouped into twenty themed sets of twenty. That structure gave the game a clear shape: each set was a satisfying, self-contained run, and the spread of topics meant there was something for every kind of player, from history buffs to Bollywood fans.</p>
+      </div>
+
+      <div class="system-block">
+        <h3>Difficulty and pacing within a set</h3>
+        <p>We paid real attention to how a set of twenty felt from start to finish, so it ramped fairly and never opened with a brick wall or coasted to the end. A lot of my oversight went into making sure the curve felt right rather than arbitrary.</p>
+      </div>
+
+      <div class="system-block">
+        <h3>Scoring and fairness</h3>
+        <p>Scoring rewarded both accuracy and a bit of speed, without punishing a thoughtful player too harshly. The guiding rule throughout was fairness: clean questions, honest difficulty, and a score players could trust.</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- ─── 04: The Launch ─── -->
+  <div class="container">
+    <section class="cs-section">
+      <div class="section-label">
+        <span class="num">04</span>
+        <h4>The Launch</h4>
+      </div>
+      <h2>Top ten most downloaded</h2>
+      <p style="margin-top: 20px;">All India Quiz launched on Android and iOS and quickly climbed into the top ten most downloaded games. For a small studio shipping a homegrown quiz, that was real validation: the idea connected, the content resonated, and the experience held together well enough that people kept playing and kept telling others.</p>
+      <p>Getting there came down to the producer fundamentals: a clear scope, a steady quality bar, and a junior designer I could back to do strong work. That is the kind of result I want on every team I join.</p>
+
+      <!-- LAUNCH / STORE -->
+      <div class="media">
+        <img src="images/all-india-quiz/07-launch.png" alt="All India Quiz launch / store listing" />
+      </div>
+    </section>
+  </div>
+
+  <!-- ─── PROJECT NAV ─── -->
+  <div class="container">
+    <div class="project-nav">
+      <a href="cosmic-sentry.html">← Cosmic Sentry</a>
+      <a href="index.html">All Work →</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>Vivek Vasudevan, Game Design Lead</p>
+    <p>Melbourne, AU</p>
+  </footer>
+
+</body>
+</html>
