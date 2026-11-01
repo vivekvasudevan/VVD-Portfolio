@@ -1,0 +1,124 @@
+/* Responsive fixes for the combined portfolio's product pages.
+   Loaded last so it overrides each page's fixed desktop widths. */
+
+/* ─── Shared footer ─────────────────────────────────────── */
+.footer-bottom-nav { width: min(var(--content-width), 100%); box-sizing: border-box; }
+.footer { max-width: 100%; box-sizing: border-box; }
+.footer-email-link { max-width: 100%; min-width: 0; overflow-wrap: anywhere; }
+
+/* ─── Home ──────────────────────────────────────────────── */
+html[data-cs="home"] { --page-margin: clamp(40px, calc((100vw - 1200px) / 2), 120px); }
+.hero { max-width: 100%; box-sizing: border-box; }
+
+@media (min-width: 769px) {
+  .cs-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cs-card { min-width: 0; }
+  .cs-image { width: 100%; height: auto; aspect-ratio: 576 / 400; }
+}
+@media (max-width: 860px) and (min-width: 481px) {
+  .hero-hi, .hero-name { font-size: clamp(36px, 8.5vw, 80px); }
+}
+@media (max-width: 600px) and (min-width: 481px) {
+  .hero-headline { gap: 8px; }
+  .hero-photo-wrap { width: 96px; height: 96px; }
+  .hero-photo { width: 90px; height: 90px; }
+}
+
+/* ─── About and Atisfy case studies between phone and desktop ─ */
+@media (max-width: 1280px) and (min-width: 769px) {
+  .about-intro, .endorsements-section, .sections-wrapper, .cs-wrap {
+    width: 100%; padding-left: 40px; padding-right: 40px; box-sizing: border-box;
+  }
+  .about-photo-wrap { max-width: 100%; height: auto; aspect-ratio: 606 / 403; }
+  .endorsement-card { max-width: 100%; box-sizing: border-box; }
+  .skills-grid { width: 100%; }
+  .toolkit-row { flex-wrap: wrap; gap: 40px; justify-content: center; }
+  .section-header { width: 100%; }
+}
+
+/* ─── Atisfyre ──────────────────────────────────────────── */
+@media (max-width: 1040px) and (min-width: 769px) {
+  .hero-inner { gap: 32px; }
+  .hero-left { flex: 1 1 0; min-width: 0; }
+  .hero-right { flex: 0 0 280px; }
+  .hero-phone-img { width: 280px; }
+  .hero-yellow-panel { right: 40px; }
+}
+@media (max-width: 360px) {
+  .toc-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ─── Atisfyreach ───────────────────────────────────────── */
+.feature-card { max-width: 90vw; box-sizing: border-box; }
+@media (max-width: 1280px) and (min-width: 769px) {
+  .footer { width: 100%; }
+  .sticky-row { flex-wrap: wrap; justify-content: center; gap: 40px; }
+}
+@media (max-width: 420px) { .sticky-cluster { zoom: 0.8; } }
+@media (max-width: 360px) { .sticky-cluster { zoom: 0.62; } }
+
+/* ─── Coinloop ──────────────────────────────────────────── */
+@media (max-width: 1640px) {
+  .cl-init-phones { flex-wrap: wrap; justify-content: center; padding: 0 40px; }
+}
+@media (max-width: 600px) {
+  .cl-init-phones { padding: 0; }
+}
+
+/* ─── Jinance ───────────────────────────────────────────── */
+.jn-prototype-row > * { min-width: 0; }
+@media (max-width: 900px) {
+  .jn-ideate-right { flex-shrink: 1; max-width: 100%; min-width: 0; }
+  .jn-ideate-right img { max-width: 100%; height: auto; }
+}
+@media (max-width: 680px) {
+  .jn-process-row { flex-wrap: wrap; justify-content: center; gap: 24px; }
+  .jn-process-connector { display: none; }
+}
+
+/* ─── Mantro ────────────────────────────────────────────── */
+.mt-logos-inner { flex-wrap: wrap; }
+.mt-logo-card { max-width: 100%; }
+@media (max-width: 860px) {
+  .mt-roles-columns { grid-template-columns: 1fr; }
+}
+@media (max-width: 860px) {
+  .mt-features-wheel { width: 100%; height: auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 16px; }
+  .mt-wheel-ring { display: none; }
+  .mt-wheel-center { position: static; transform: none; grid-column: 1 / -1; justify-self: center; }
+  .mt-wheel-item, .mt-wheel-item:nth-child(n) { position: static; transform: none; width: auto; }
+  .mt-wheel-label { white-space: normal; }
+}
+@media (max-width: 700px) {
+  .mt-about-inner { max-width: 100%; min-width: 0; }
+  .mt-logos, .mt-features, .mt-roles, .mt-problem, .mt-competitor,
+  .mt-writeup, .mt-typography, .mt-colours, .mt-screens { padding-left: 20px; padding-right: 20px; }
+  .mt-logo-card { height: auto; aspect-ratio: 1; }
+  .mt-logo-card img { width: 68%; height: auto; }
+  .mt-diamond-row { flex-wrap: wrap; gap: 40px 16px; }
+  .mt-diamond-phase { flex: 1 1 40%; }
+  .mt-diamond-connector { display: none; }
+  .mt-primary-circles { width: 100%; justify-content: center; }
+  .mt-circle { width: min(200px, 48vw); height: min(200px, 48vw); }
+}
+@media (max-width: 360px) {
+  .nav-wrap .cs-back-link ~ .nav-brand .nav-name { display: none; }
+  .hero-hi, .hero-name { font-size: 34px; }
+  .hero-photo-wrap { width: 84px; height: 84px; }
+  .hero-photo { width: 78px; height: 78px; }
+}
+
+/* ─── Remaining edge cases ──────────────────────────────── */
+@media (max-width: 900px) {
+  .colours-section { padding-left: 24px; padding-right: 24px; }
+  .colours-row { flex-wrap: wrap; justify-content: center; gap: 32px; }
+}
+@media (max-width: 768px) {
+  .swot-grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 480px) {
+  body { overflow-x: clip; }
+}
+@media (max-width: 360px) {
+  .mt-diamond-shape { width: 84px; height: 84px; }
+}
